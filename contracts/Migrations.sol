@@ -1,11 +1,13 @@
 // SPDX-License-Identifier: MIT
-pragma solidity >=0.4.21 <0.7.0;
+pragma solidity ^0.8.0;
+
+import "@openzeppelin/contracts/token/ERC721/extensions/IERC721Enumerable.sol";
 
 contract Migrations {
     address public owner;
     uint public last_completed_migration;
 
-    constructor() public {
+    constructor() {
         owner = msg.sender;
     }
 
