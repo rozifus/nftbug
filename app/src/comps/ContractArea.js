@@ -7,6 +7,9 @@ import InputAdornment from '@material-ui/core/InputAdornment';
 import IconButton from '@material-ui/core/IconButton';
 import TextField from '@material-ui/core/TextField';
 
+import LinkIcon from '@material-ui/icons/Link';
+import LinkOffIcon from '@material-ui/icons/LinkOff';
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -18,18 +21,18 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-/*
-const validIcon = ( 
-  <InputAdornment position="start">
-    <IconButton edge="start">
-      <Done />
-    </IconButton>
-  </InputAdornment>
-)
-*/
-
-export default ({drizzle, drizzleState, value, onChange}) => {
+export default ({drizzle, drizzleState, value, onChange, valid, connected}) => {
   const classes = useStyles();
+
+  const connectedIcon = connected ? <LinkIcon /> : <LinkOffIcon />
+
+  const adornment = ( 
+    <InputAdornment position="start">
+      <IconButton edge="start">
+        {connectedIcon}
+      </IconButton>
+    </InputAdornment>
+  )
 
   return (
     <div className={classes.root}>
@@ -41,7 +44,7 @@ export default ({drizzle, drizzleState, value, onChange}) => {
           value={value}
           onChange={onChange}
           InputProps={{
-            //startAdornment: icon
+            startAdornment: adornment
           }}
         />
       </FormControl>

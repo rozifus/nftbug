@@ -1,8 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
-import abiIERC721Enumerable from "../contracts/IERC721Enumerable.abi.json";
+import abiIERC721Enumerable from "../interfaces/IERC721Enumerable.abi.json";
 
-import FormControl from '@material-ui/core/FormControl';
-import { makeStyles } from '@material-ui/core/styles';
 import genContractName from "../utils/genContractName";
 
 export default ({drizzle, drizzleState, contract}) => {

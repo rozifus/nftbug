@@ -1,15 +1,21 @@
-import React, { useState, useRef, useEffect } from "react";
-import abiIERC721 from "../contracts/IERC721.abi.json";
+import React, { useState, useEffect } from "react";
+
+import abiIERC721 from "../interfaces/IERC721.abi.json";
 import genContractName from "../utils/genContractName";
+
 import ContractArea from "./ContractArea";
 import EnumerableCount from "./EnumerableCount";
+import InterfacePanel from "./InterfacePanel";
+
+import Container from "@material-ui/core/Container";
+import Grid from "@material-ui/core/Grid";
 
 
 export default ({drizzle, drizzleState}) => {
   const [contract, setContract] = useState("");
   const contractName = genContractName(contract, "ERC721");
   const validContract = drizzle.web3.utils.isAddress(contract);
-  const drizzled721 = Boolean(drizzle.contracts[contractName]);
+  const drizzledContract = Boolean(drizzle.contracts[contractName]);
 
   const onChangeContractHandler = e => {
     let v = e.target.value && e.target.value.trim();
@@ -33,17 +39,24 @@ export default ({drizzle, drizzleState}) => {
   },
   [contract, setContract])
 
-  const enumerable = validContract ? 
-      <EnumerableCount drizzle={drizzle} drizzleState={drizzleState} contract={contract} />
-      : null
-
   return (
-    <div>
-      <ContractArea value={contract} onChange={onChangeContractHandler} />
-      <p>Contract: {contract}</p>
-      <p>Valid: {validContract.toString()}</p>
-      <p>Drizzled: {drizzled721.toString()}</p>
-      {enumerable}
-    </div>
+    <Container maxWidth="lg">
+      <Grid container>
+        <Grid item xs={12}>
+          <ContractArea
+            value={contract}
+            onChange={onChangeContractHandler}
+            valid={validContract}
+            connected={drizzledContract}
+          />
+        </Grid> 
+        <Grid item>
+          {validContract && <InterfacePanel drizzle={drizzle} drizzleState={drizzleState} contract={contract} />}
+        </Grid>
+        <Grid item xs={12}>
+          {validContract && <EnumerableCount drizzle={drizzle} drizzleState={drizzleState} contract={contract} />}
+        </Grid>
+      </Grid>
+    </Container>
   );
 };
