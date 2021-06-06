@@ -16,7 +16,7 @@ import Typography from "@material-ui/core/Typography";
 
 
 export default ({drizzle, drizzleState}) => {
-  const [contract, setContract] = useState("");
+  const [contract, setContract] = useState("0xec9c519d49856fd2f8133a0741b4dbe002ce211b")
   const contractName = genContractName(contract, "ERC721");
   const validContract = drizzle.web3.utils.isAddress(contract);
   const drizzledContract = Boolean(drizzle.contracts[contractName]);
@@ -46,16 +46,12 @@ export default ({drizzle, drizzleState}) => {
   return (
     <React.Fragment>
       <CssBaseline />
-      <ContractBar contract={contract} connected={drizzledContract} onChangeContract={onChangeContractHandler} />
       <Container maxWidth="lg">
-        <Grid container>
-          <Grid item>
-            {validContract && <InterfacePanel drizzle={drizzle} drizzleState={drizzleState} contract={contract} />}
-          </Grid>
-          <Grid item xs={12}>
-            {validContract && <EnumerableCount drizzle={drizzle} drizzleState={drizzleState} contract={contract} />}
-          </Grid>
-        </Grid>
+        <ContractBar contract={contract} connected={drizzledContract} onChangeContract={onChangeContractHandler} />
+        <div>
+          {validContract && <InterfacePanel drizzle={drizzle} drizzleState={drizzleState} contract={contract} />}
+          {validContract && <EnumerableCount drizzle={drizzle} drizzleState={drizzleState} contract={contract} />}
+        </div>
       </Container>
     </React.Fragment>
   );

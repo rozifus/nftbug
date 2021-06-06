@@ -2,7 +2,12 @@ import React, { useState, useRef, useEffect } from "react";
 
 import interfaceSignatures from "../data/interfaceSignatures.json"
 
-import Grid from "@material-ui/core/Grid";
+import CheckBoxIcon from '@material-ui/icons/CheckBox';
+import CheckBoxOutlineBlankIcon from '@material-ui/icons/CheckBoxOutlineBlank';
+import ListItem from "@material-ui/core/ListItem";
+import ListItemAvatar from "@material-ui/core/ListItemAvatar";
+import ListItemText from "@material-ui/core/ListItemText";
+import { ListItemSecondaryAction, Switch } from "@material-ui/core";
 
 
 export default ({drizzle, drizzleState, contract, contractName, interfaceName}) => {
@@ -23,9 +28,25 @@ export default ({drizzle, drizzleState, contract, contractName, interfaceName}) 
 
   const supportRes = drizzleContractState.supportsInterface[datakey];
   const support = (supportRes && supportRes.value) || false;
+
+  const supportIcon = support ? <CheckBoxIcon /> : <CheckBoxOutlineBlankIcon />
+
   return (
-    <Grid item xs={12}>
-      <p>Interface {interfaceName}: {support.toString()}</p>
-    </Grid>
+    <ListItem>
+      <ListItemAvatar>
+        <ListItemAvatar>
+          {supportIcon}
+        </ListItemAvatar>
+      </ListItemAvatar>
+      <ListItemText
+        primary={interfaceName}
+        secondary="TODO"
+      />
+      <ListItemSecondaryAction>
+        <Switch
+          edge="end"
+        />
+      </ListItemSecondaryAction>
+    </ListItem>
   );
 };
