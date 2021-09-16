@@ -72,6 +72,7 @@ export default ({contract, connected, onChangeContract}) => {
               root: classes.inputRoot,
               input: classes.inputInput
             }}
+            value={contract}
           />
         </div>
       </Toolbar>

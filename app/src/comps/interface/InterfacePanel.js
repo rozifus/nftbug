@@ -1,8 +1,8 @@
 import React, { useState, useRef, useEffect } from "react";
 
-import abiIERC165 from "../interfaces/IERC165.abi.json";
-import genContractName from "../utils/genContractName";
-import interfaceSignatures from "../data/interfaceSignatures.json"
+import abiIERC165 from "../../interfaces/IERC165.abi.json";
+import genContractName from "../../utils/genContractName";
+import interfaceSignatures from "../../data/interfaceSignatures.json"
 
 import InterfaceCheck from "./InterfaceCheck";
 

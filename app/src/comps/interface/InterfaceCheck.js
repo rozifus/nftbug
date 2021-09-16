@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 
-import interfaceSignatures from "../data/interfaceSignatures.json"
+import interfaceSignatures from "../../data/interfaceSignatures.json"
 
 import CheckBoxIcon from '@material-ui/icons/CheckBox';
 import CheckBoxOutlineBlankIcon from '@material-ui/icons/CheckBoxOutlineBlank';

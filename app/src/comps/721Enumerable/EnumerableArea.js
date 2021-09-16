@@ -1,9 +1,9 @@
 import React, { useState, useRef, useEffect } from "react";
-import abiIERC721Enumerable from "../contracts/IERC721Enumerable.abi.json";
+import abiIERC721Enumerable from "../../contracts/IERC721Enumerable.abi.json";
 
 import FormControl from '@material-ui/core/FormControl';
 import { makeStyles } from '@material-ui/core/styles';
-import genContractName from "../utils/genContractName";
+import genContractName from "../../utils/genContractName";
 
 
 const useStyles = makeStyles((theme) => ({

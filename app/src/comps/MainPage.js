@@ -4,9 +4,12 @@ import abiIERC721 from "../interfaces/IERC721.abi.json";
 import genContractName from "../utils/genContractName";
 
 import ContractArea from "./__DEP/ContractArea";
-import EnumerableCount from "./EnumerableCount";
-import InterfacePanel from "./InterfacePanel";
+import EnumerableCount from "./721Enumerable/EnumerableCount";
+import InterfacePanel from "./interface//InterfacePanel";
+import MetadataViewer from "./metadata-viewer/MetadataViewer";
+import ViewerWrapper from "./metadata-viewer/ViewerWrapper";
 import ContractBar from "./ContractBar";
+import DebugContract from "./context/debug-contract"
 
 import { CssBaseline, Toolbar } from "@material-ui/core";
 import Container from "@material-ui/core/Container";
@@ -23,6 +26,11 @@ export default ({drizzle, drizzleState}) => {
 
   const onChangeContractHandler = e => {
     let v = e.target.value && e.target.value.trim();
+
+    let addr = v.match(/(\b0x[a-f0-9]{40}\b)/g)
+    if (addr && addr.length) {
+      v = addr[addr.length - 1]
+    }
 
     setContract(v);
   }
@@ -51,6 +59,7 @@ export default ({drizzle, drizzleState}) => {
         <div>
           {validContract && <InterfacePanel drizzle={drizzle} drizzleState={drizzleState} contract={contract} />}
           {validContract && <EnumerableCount drizzle={drizzle} drizzleState={drizzleState} contract={contract} />}
+          {validContract && <ViewerWrapper contract={contract} />}
         </div>
       </Container>
     </React.Fragment>

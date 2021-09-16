@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
-import abiIERC721Enumerable from "../interfaces/IERC721Enumerable.abi.json";
+import abiIERC721Enumerable from "../../interfaces/IERC721Enumerable.abi.json";
 
-import genContractName from "../utils/genContractName";
+import genContractName from "../../utils/genContractName";
 
 export default ({drizzle, drizzleState, contract}) => {
   const contractName = genContractName(contract, "ERC721Enumerable")
