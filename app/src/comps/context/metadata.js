@@ -2,7 +2,6 @@
 
 import React, { useState, useEffect } from 'react';
 import { getRawMetadata } from '../util/metadata'
-import { useErc721Token } from './erc721Token';
 
 let MetadataContext;
 let { Provider } = (MetadataContext = React.createContext())
@@ -34,6 +33,7 @@ export const MetadataProvider = ({ uri, children}) => {
     return <Provider value={{ metadata: { raw } }}>{children}</Provider>
 }
 
+/*
 export const MetadataProviderFromErc721Token = ({ children }) => {
     const { uri, ready } = useErc721Token();
 
@@ -43,5 +43,6 @@ export const MetadataProviderFromErc721Token = ({ children }) => {
 
     return <MetadataProvider uri={uri}>{children}</MetadataProvider>
 }
+*/
 
 export default MetadataProvider;

@@ -11,6 +11,7 @@ contract("Interface Ids", async accounts => {
 
     await logId(ii, "IERC165");
     await logId(ii, "IERC721");
+    await logId(ii, "IERC721Metadata");
     await logId(ii, "IERC721Enumerable");
     await logId(ii, "IERC777");
     await logId(ii, "IERC1155");

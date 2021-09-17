@@ -6,14 +6,14 @@ import { NamespacedDrizzleContractProvider } from "../context/namespaced-drizzle
 import { Erc721Provider } from "../context/erc721";
 
 import { DrizzleContext } from "@drizzle/react-plugin";
+import Erc721MetadataJson from "../../contracts/IERC721Metadata.json";
 
 
 const ViewerWrapper = ({contract, children}) => {
-
   return (
-    <Erc721Provider address={contract}>
+    <NamespacedDrizzleContractProvider namespace="Erc721Metadata" address={contract} abi={Erc721MetadataJson.abi}>
       <MetadataViewer />
-    </Erc721Provider>
+    </NamespacedDrizzleContractProvider>
   )
 
 }

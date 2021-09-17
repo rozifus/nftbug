@@ -4,12 +4,12 @@ import React, { useState, useEffect, useContext } from "react";
 import { useShop } from "./shop";
 
 
-let GoodContext;
-let { Provider } = (GoodContext = React.createContext())
+let Erc721MetadataContext;
+let { Provider } = (Erc721MetadataContext = React.createContext())
 
-export const useGood = () => React.useContext(GoodContext);
+export const useErc721Metadata = () => React.useContext(Erc721MetadataContext);
 
-const GoodProvider = ({index, children}) => {
+const Erc721MetadataProvider = ({index, children}) => {
   const { contract: shop, state: shopState, ready: shopReady } = useShop();
   // console.log(shop, shopState, shopReady)
 

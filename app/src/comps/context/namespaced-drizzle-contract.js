@@ -60,7 +60,24 @@ const DrizzleContractProvider = ({ provider, address, abi, children }) => {
     const ready = drizzleContractName && Boolean(contract) && Boolean(state);
 
     const Provider = provider;
-    return <Provider value={{ address, drizzleContractName, contract, state, ready }}>{children}</Provider>
+
+    if (ready) {
+        return <Provider value={{ address, drizzleContractName, contract, state, ready }}>{children}</Provider>
+    }
+
+    return null
 }
+
+/*
+const ExportNamespacedDrizzleContract = (namespace) => {
+    const ndc = useNamespacedDrizzleContract(namespace)
+
+    return {children(ndc)}
+}
+
+const explodeContext = (useFunction, ...params) => ({children}) => {
+    const ctx = useFunction(...params)
+    return {children(ctx)}
+}*/
 
 export default DrizzleContractProvider;
