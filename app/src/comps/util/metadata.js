@@ -1,6 +1,9 @@
 
 export const getRawMetadata = uri => {
-  return fetch(uri, { headers: { 'Content-Type': 'application/json' } })
+  return fetch(uri, { headers: {
+      'mode': 'no-cors',
+      'Content-Type': 'application/json'
+    } })
     .then(validateResponse)
     .then(res => res.json())
 };
