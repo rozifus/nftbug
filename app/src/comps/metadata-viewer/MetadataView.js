@@ -6,13 +6,23 @@ import Link from "@material-ui/core/Link";
 
 
 export default ({contract, tokenId}) => {
-  const { status, metadataUrl, rawData } = useNft( contract, tokenId );
+  const { error, status, nft } = useNft( contract, tokenId );
 
-  console.log(status, metadataUrl)
+  console.log(status)
 
   if (status != "done") {
+    if (error) {
+      console.log(error)
+    }
     return null
   }
+
+  console.log(nft)
+
+  const { rawData, metadataUrl } = nft;
+
+  console.log(rawData)
+  console.log(status, metadataUrl)
 
   return (
     <div>

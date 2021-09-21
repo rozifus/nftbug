@@ -20,13 +20,13 @@ const MetadataViewer = () => {
     setTokenId(tokenId)
   }
 
-  useEffect(() => {
+  /*useEffect(() => {
     if (tokenId != "") {
       const dk = contract.methods["tokenURI"].cacheCall(tokenId);
       setUriDatakey(dk);
     }
   },
-  [tokenId])
+  [tokenId])*/
 
   const uriState = state.tokenURI[uriDatakey];
   const uri = uriState && uriState.value;
@@ -42,11 +42,12 @@ const MetadataViewer = () => {
       </p>
       
       <input type="text" value={tokenId} onChange={tokenIdChange} />
+      <MetadataView  contract={address} tokenId={tokenId}/> 
       <hr />
       {uri ? (
-        <MetadataProvider uri={uri}>
-          <MetadataView  contract={contract} tokenId={tokenId}/> 
-        </MetadataProvider>
+        null
+       /* <MetadataProvider uri={uri}>
+        </MetadataProvider>*/
       ) : null }
    </div>
   );
