@@ -30,7 +30,7 @@ export const MetadataProvider = ({ uri, children}) => {
         return null;
     }
 
-    return <Provider value={{ metadata: { raw } }}>{children}</Provider>
+    return <Provider value={{ metadata: { raw, uri } }}>{children}</Provider>
 }
 
 /*
