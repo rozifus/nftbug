@@ -1,7 +1,6 @@
 #!/bin/bash
 
-yarn
-yarn ./build-abi.sh
+npm install
 
 yarn --cwd ./app/
 yarn --cwd ./app/ build
