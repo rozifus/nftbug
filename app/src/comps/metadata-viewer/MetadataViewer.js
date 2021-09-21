@@ -45,7 +45,7 @@ const MetadataViewer = () => {
       <hr />
       {uri ? (
         <MetadataProvider uri={uri}>
-          <MetadataView /> 
+          <MetadataView  contract={contract} tokenId={tokenId}/> 
         </MetadataProvider>
       ) : null }
    </div>
