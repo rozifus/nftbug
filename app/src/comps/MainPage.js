@@ -9,7 +9,8 @@ import InterfacePanel from "./interface//InterfacePanel";
 import MetadataViewer from "./metadata-viewer/MetadataViewer";
 import ViewerWrapper from "./metadata-viewer/ViewerWrapper";
 import ContractBar from "./ContractBar";
-import DebugContract from "./context/debug-contract"
+import DebugContract from "./context/debug-contract";
+import MetadataViewerDirect from "./metadata-viewer/MetadataViewerDirect";
 
 import { CssBaseline, Toolbar } from "@material-ui/core";
 import Container from "@material-ui/core/Container";
@@ -58,8 +59,9 @@ export default ({drizzle, drizzleState}) => {
         <ContractBar contract={contract} connected={drizzledContract} onChangeContract={onChangeContractHandler} />
         <div>
           {validContract && <InterfacePanel drizzle={drizzle} drizzleState={drizzleState} contract={contract} />}
-          {validContract && <EnumerableCount drizzle={drizzle} drizzleState={drizzleState} contract={contract} />}
-          {validContract && <ViewerWrapper contract={contract} />}
+          {/*validContract && <EnumerableCount drizzle={drizzle} drizzleState={drizzleState} contract={contract} />*/}
+          {validContract && <MetadataViewerDirect contract={contract} />}
+          {/*validContract && <ViewerWrapper contract={contract} />*/}
         </div>
       </Container>
     </React.Fragment>

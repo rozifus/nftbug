@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect, useContext } from "react";
 
-import { useShop } from "./shop";
+import { useShop } from "./erc721";
 
 
 let TokenContext;

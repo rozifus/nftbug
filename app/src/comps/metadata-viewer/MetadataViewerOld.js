@@ -5,7 +5,7 @@ import MetadataView from "./MetadataView";
 
 import { DrizzleContext } from "@drizzle/react-plugin";
 import Erc721Provider, { useErc721 } from "../context/erc721";
-import { Erc721TokenProviderFromErc721 } from "../context/erc721Token";
+import { Erc721TokenProviderFromErc721 } from "../context/erc721Metadata3";
 import MetadataProvider, { MetadataProviderFromErc721Token } from "../context/metadata";
 
 
